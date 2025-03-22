@@ -1,138 +1,90 @@
 import React, { useState } from "react";
-import { FaTimes } from "react-icons/fa";
 import { CiMenuBurger } from "react-icons/ci";
-import AppLayout from "./components/AppLayout";
-
-// nav  scroll in mob. view  start right text  and slide a 75%
-
+import { FaTimes } from "react-icons/fa";
+import Logo from "./assets/logo.png";
 const Navbar = () => {
-  const [click, setClick] = useState(false);
+  const menuItems1 = ["Home", "Plans", "Terms of Use", "FAQs", "About us"];
+  const menuItems = [
+    { name: "Home", active: true },
+    { name: "Plans", active: false },
+    { name: "Terms of Use", active: false },
+    { name: "FAQs", active: false },
+    { name: "About us", active: false },
+  ];
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  const handleClick = () => {
-    setClick(!click);
-  };
-
-  const content = (
-    <div className="lg:hidden block absolute top-16 w-full left-0 right-0 bg-[#00324D]  transition-transform duration-200 transform ">
-      <AppLayout>
-        <ul className="text-center text-xl px-[20px] shadow-2xl  transition-transform duration-200 transform ">
-          <li className="my-4 py-4 border-black ">
-            <a href="#product" onClick={handleClick}>
-              Product
-            </a>
-          </li>
-          <li className="my-4 py-4 border-black">
-            <a href="#service" onClick={handleClick}>
-              Services
-            </a>
-          </li>
-          <li className="my-4 py-4 border-black">
-            <a href="#blogs" onClick={handleClick}>
-              Blogs
-            </a>
-          </li>
-
-          <li className="my-4 py-4 border-black">
-            <a href="#gallery" onClick={handleClick}>
-              Gallery
-            </a>
-          </li>
-          <li className="my-4 py-4 border-black">
-            <a href="#contact" onClick={handleClick}>
-              Contact
-            </a>
-          </li>
-        </ul>
-      </AppLayout>
-    </div>
-  );
   return (
-    <div className="bg-[#00324D] text-white sticky top-0 z-50">
-      <AppLayout>
-        <nav>
-          <div className="h-16 flex justify-between z-20 text-white lg:py-5 px-[20px] py-4 ">
-            <div className="flex items-center flex-1">
-              <a href="/">
-                <span className="text-3xl font-bold">Capitalcurv</span>
-
-                {/* logo of company */}
-                {/* <img src="/" alt="comLogo" /> */}
-              </a>
-            </div>
-            {/* 
-
-                center in nave 
-Home
-Plans
-Terms Of Use
-FAQ
-AboutUs */}
-
-            <div className="lg:flex lg:flex-1 items-center justify-end font-normal hidden">
-              <div className="flex-10">
-                <ul className="flex gap-8 mr-16 text-[18px] ">
-                  <li className="hover:text-black transition  hover:underline  cursor-pointer">
-                    <a href="#product">Home</a>
-                  </li>
-                  <li className="hover:text-black transition  hover:underline  cursor-pointer">
-                    <a href="#service">Plans</a>
-                  </li>
-                  <li className="hover:text-black transition  hover:underline  cursor-pointer">
-                    <a href="#blogs">Terms Of Use</a>
-                  </li>
-                  <li className="hover:text-black transition  hover:underline  cursor-pointer">
-                    <a href="#gallery">FAQ</a>
-                  </li>
-                  <li className="hover:text-black transition  hover:underline  cursor-pointer">
-                    <a href="#contact">AboutUs</a>
-                  </li>
-
-                  <button className="text-white">Click</button>
-                  <button className="text-white">Click</button>
-                </ul>
-              </div>
-            </div>
-
-            {/* <div className="lg:flex lg:flex-1 flex-wrap items-center justify-between px-4 py-2 hidden">
-              <ul className="flex flex-wrap gap-6 text-lg antialiased subpixel-antialiased text-gray-700 md:gap-8">
-                <li className="hover:text-black transition duration-300 hover:underline cursor-pointer">
-                  <a href="#product">Home</a>
-                </li>
-                <li className="hover:text-black transition duration-300 hover:underline cursor-pointer">
-                  <a href="#service">Plans</a>
-                </li>
-                <li className="hover:text-black transition duration-300 hover:underline cursor-pointer">
-                  <a href="#blogs">Terms Of Use</a>
-                </li>
-                <li className="hover:text-black transition duration-300 hover:underline cursor-pointer">
-                  <a href="#gallery">FAQ</a>
-                </li>
-                <li className="hover:text-black transition duration-300 hover:underline cursor-pointer">
-                  <a href="#contact">About Us</a>
-                </li>
-              </ul>
-
-              
-              <div className="flex gap-4 mt-2 md:mt-0">
-                <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300">
-                  Click
-                </button>
-                <button className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition duration-300">
-                  Click
-                </button>
-              </div>
-            </div> */}
-
-            <div>{click && content}</div>
-            <button
-              className="block lg:hidden translate text-white"
-              onClick={handleClick}
-            >
-              {click ? <FaTimes /> : <CiMenuBurger />}
-            </button>
+    <div className="max-w-[1450px] m-auto xl:mt-3">
+      <nav className="bg-[#00324D] text-white px-6 lg:px-12 py-4 flex items-center justify-between shadow-md  lg:rounded-2xl h-[60px]">
+        {/* Logo */}
+        <div className="flex items-center space-x-2">
+          <div className="rounded-xl">
+            <img
+              src={Logo} // Replace with your actual logo
+              alt="logo"
+              className="h-[40px] w-[40px] md:h-[50px] md:w-[50px] rounded"
+            />
           </div>
-        </nav>
-      </AppLayout>
+          <span className="text-[22px] font-bold ">
+            Capital <span className="text-green-400">Curv</span>
+          </span>
+        </div>
+        {/* Desktop Menu */}
+        <ul className="hidden lg:flex space-x-8 text-md">
+          {menuItems1.map((item, index) => (
+            <li
+              key={index}
+              className="cursor-pointer font-semibold hover:text-green-400 hover:underline "
+            >
+              {item}
+            </li>
+          ))}
+        </ul>
+        {/* Buttons */}
+        <div className="hidden lg:flex space-x-4">
+          <button className="bg-green-200 text-[18px] text-black px-4 py-2 rounded-lg hover:bg-green-300 font-medium">
+            Sign up
+          </button>
+          <button className="bg-green-400 text-[18px] text-black px-4 py-2 rounded-lg hover:bg-green-500 font-medium">
+            Dashboard
+          </button>
+        </div>
+
+        {/* Mobile Menu Icon */}
+        <div className="lg:hidden flex items-center">
+          <button onClick={() => setMenuOpen(!menuOpen)}>
+            {menuOpen ? <FaTimes size={24} /> : <CiMenuBurger size={24} />}
+          </button>
+        </div>
+
+        {/* Mobile Menu */}
+        {menuOpen && (
+          <div className="absolute top-16 left-0 w-[75%] bg-[#00324D] text-start py-6 lg:hidden">
+            <ul className="space-y-4 text-lg p-[3%]">
+              {menuItems.map((item, index) => (
+                <li
+                  key={index}
+                  className={`cursor-pointer ${
+                    item.active
+                      ? "text-green-400 font-semibold"
+                      : "hover:text-gray-300"
+                  }`}
+                >
+                  {item.name}
+                </li>
+              ))}
+            </ul>
+            <div className="mt-4 space-y-2">
+              <button className="bg-green-300 text-black px-4 py-2 rounded-lg w-full">
+                Sign up
+              </button>
+              <button className="bg-green-500 text-black px-4 py-2 rounded-lg w-full">
+                Dashboard
+              </button>
+            </div>
+          </div>
+        )}
+      </nav>
     </div>
   );
 };
