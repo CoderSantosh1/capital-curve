@@ -1,0 +1,16 @@
+.custom-gradient {
+  background: rgb(15, 165, 138);
+  background: linear-gradient(
+    0deg,
+    rgba(15, 165, 138, 1) 34%,
+    rgba(254, 255, 255, 1) 100%
+  );
+}
+.btn {
+  background: rgb(11, 53, 75);
+  background: linear-gradient(
+    0deg,
+    rgba(11, 53, 75, 1) 34%,
+    rgba(11, 160, 134, 1) 100%
+  );
+}

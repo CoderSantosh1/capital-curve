@@ -20,7 +20,7 @@ const Footer = () => {
   return (
     <footer className="bg-[#123A52] text-white py-4 px-6 md:px-16">
       <AppLayout>
-        <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="container mx-auto grid grid-cols-3 sm:grid-cols-2 md:grid-cols-4 gap-4">
           {/* Left Section: Logo & Description */}
           <div className="  ">
             <h2 className="text-2xl font-bold flex items-center space-x-2">
@@ -46,7 +46,7 @@ const Footer = () => {
           {/* Center Sections: Company, Legal, Community */}
           {footerLinks.map((section, index) => (
             <div key={index}>
-              <h3 className="text-[20px] font-bold flex items-center mt-[10px] ml-3 text-gray-100  ">
+              <h3 className="text-[18px] font-bold flex items-center mt-[10px] ml-3 text-gray-100  ">
                 {section.title}
               </h3>
               <ul className="space-y-2 ml-4 mt-3 text-gray-200">
