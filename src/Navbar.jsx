@@ -31,7 +31,7 @@ const Navbar = () => {
             />
           </div>
           <span className="text-[22px] font-bold ">
-            Capital <span className="text-green-400">Curv</span>
+            Capital <span className="text-[#2BE7B8]">Curv</span>
           </span>
         </div>
         {/* Desktop Menu */}

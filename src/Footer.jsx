@@ -31,7 +31,7 @@ const Footer = () => {
               />
 
               <span>
-                Capital <span className="text-green-400">Curv</span>
+                Capital <span className="text-[#2BE7B8]">Curv</span>
               </span>
             </h2>
             <p className="mt-3 text-sm text-gray-300 leading-relaxed p-[1%]">
@@ -44,9 +44,10 @@ const Footer = () => {
           </div>
 
           {/* Center Sections: Company, Legal, Community */}
+         
           {footerLinks.map((section, index) => (
             <div key={index}>
-              <h3 className="text-[18px] font-bold flex items-center mt-[10px] ml-3 text-gray-100  ">
+              <h3 className="text-[18px] font-bold flex items-center mt-[10px] text-gray-100  ">
                 {section.title}
               </h3>
               <ul className="space-y-2 ml-4 mt-3 text-gray-200">
@@ -63,6 +64,7 @@ const Footer = () => {
               </ul>
             </div>
           ))}
+       
         </div>
 
         {/* Bottom Footer */}
