@@ -1,7 +1,7 @@
 import './App.css'
 import CapitalCurvAppInfo from './components/CapitalCurvAppInfo'
 import Hero from './components/Hero'
-import PricingPlans from './components/PricingPlans'
+// import PricingPlans from './components/PricingPlans'
 import ProcessSteps from './components/ProcessSteps'
 import WhyChooseUs from './components/WhyChooseUs'
 import Footer from './Footer'
@@ -12,11 +12,11 @@ function App() {
     <div>
       <Navbar/>
       <Hero/>
-      <CapitalCurvAppInfo/>
-      <ProcessSteps/>
-      <PricingPlans/>
-      <WhyChooseUs/>
-     <Footer/>
+      {/* <CapitalCurvAppInfo/>
+      <ProcessSteps/> */}
+      {/* <PricingPlans/> */}
+      {/* <WhyChooseUs/> */}
+     {/* <Footer/> */}
     </div>
   )
 }
