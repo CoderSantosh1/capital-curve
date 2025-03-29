@@ -5,7 +5,7 @@ const PricingPlans = () => {
   const [selectedPrice, setSelectedPrice] = useState("₹9,999");
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-900 to-teal-500 p-6 flex flex-col items-center text-white">
+    <div className="min-h-screen bg-gradient-to-b from-blue-900 to-teal-500 p-6 flex flex-col items-center text-white rounded-tl-[200px] rounded-tr-[200px]">
       <h2 className="text-3xl font-bold mb-2">Choose the Best Plans</h2>
       <p className="text-lg mb-6">Choose your Account Type</p>
 
