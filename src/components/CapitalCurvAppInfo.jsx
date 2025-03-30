@@ -4,7 +4,7 @@ import AppLayout from "./AppLayout";
 import Mobile from "../assets/phone png.png";
 const CapitalCurvAppInfo = () => {
   return (
-    <div className="w-full bg-[#0B7285] h-[100%] sm:h-[680px]">
+    <div className="w-full bg-[#0B7285] h-[95%] sm:h-[680px]">
       <AppLayout>
         <section className="relative  text-white py-16 px-6 md:px-12 lg:px-24  items-center justify-between">
           {/* Left Side Content */}
@@ -38,7 +38,7 @@ const CapitalCurvAppInfo = () => {
                 <img
                   src={Mobile}
                   alt="Mobile Mockup"
-                  className="drop-shadow-xl sm:h-[500px] h-[400px] mt-[25%] sm:mt-[0%]"
+                  className="drop-shadow-xl sm:h-[500px] h-[300px] mt-[25%] sm:mt-[0%]"
                 />
               </div>
             </div>
