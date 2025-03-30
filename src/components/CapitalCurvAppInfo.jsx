@@ -4,21 +4,22 @@ import AppLayout from "./AppLayout";
 import Mobile from "../assets/phone png.png";
 const CapitalCurvAppInfo = () => {
   return (
-    <div className="w-full bg-[#0B7285] h-[95%] sm:h-[680px]">
+    <div className="w-full bg-[#0f3D3E]  h-[95%] sm:h-[680px] mt-[.2%]">
       <AppLayout>
-        <section className="relative  text-white py-16 px-6 md:px-12 lg:px-24  items-center justify-between">
+        <section className="relative  text-white py-[4%] sm:py-16 px-6 md:px-12 lg:px-24  items-center justify-between">
           {/* Left Side Content */}
-          <h2 className="text-2xl md:text-4xl font-bold text-center">
-            <span className="text-black">Building</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center">
+            <span className="text-[##2BE7B8]">Building</span>
             <span className="text-yellow-400">
               {" "}
-              Learning & Trading Community
+              Learning 
+              & Trading Community
             </span>
           </h2>
-          <div className="grid grid-cols-2 gap-4 sm:p-4">
-            <div className=" text-white sm:p-6 p-[1%] text-start  md:w-[130%]">
+          <div className="grid grid-cols-2 gap-4 p-0 sm:p-4">
+            <div className=" text-white sm:p-6 p-[1%] text-start  sm:w-[130%]">
               <div className=" text-center lg:text-left md:mt-[7%] ">
-                <h1 className="text-[23px] sm:text-3xl md:text-5xl font-bold mt-6 text-center">
+                <h1 className="text-[23px] sm:text-3xl md:text-4xl font-bold mt-6 text-center">
                   Capital Curv App
                 </h1>
                 <p className="sm:text-lg text-[16px] text-center text-gray-200 sm:mt-14 mt-[7%] ">
@@ -33,12 +34,12 @@ const CapitalCurvAppInfo = () => {
               </div>
             </div>
 
-            <div className=" text-white p-6 text-center ">
+            <div className=" text-white p-6 text-center">
               <div className="flex justify-center lg:justify-end relative">
                 <img
                   src={Mobile}
                   alt="Mobile Mockup"
-                  className="drop-shadow-xl sm:h-[500px] h-[300px] mt-[25%] sm:mt-[0%]"
+                  className="drop-shadow-xl sm:h-[500px] w-[100%] h-[250px] mt-[25%] sm:mt-[0%] ml-[45%]"
                 />
               </div>
             </div>

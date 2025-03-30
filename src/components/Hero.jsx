@@ -8,7 +8,7 @@ import ico4 from "../assets/Icon Graphic 4.svg";
 
 const Hero = () => {
   return (
-    <div className="bg-gradient-to-b custom-gradient md:h-[700px]  flex flex-col items-start justify-start md:px-4 sm:px-[2%] pb-4 p-[.5%] sm:mt-[-7%] md:mt-[-0%]">
+    <div className="bg-gradient-to-b shadow-2xl custom-gradient md:h-[700px] flex flex-col items-start justify-start md:px-4 sm:px-[2%] pb-4 p-[.5%] sm:mt-[-7%] md:mt-[-0%]">
       <AppLayout>
         <div className="grid sm:grid-cols-2 gap-8 ">
           <div className="">
@@ -35,7 +35,7 @@ const Hero = () => {
               {features.map((feature, index) => (
                 <div
                   key={index}
-                  className="btn text-[#2BE7B8] sm:p-2 p-[1px] pt-1.5 rounded-xl flex flex-col items-center text-center w-[78px] h-[100px]  sm:w-28 md:w-34 sm:h-28 md:h-34 border-2 border-black shadow-sm shadow-black "
+                  className="btn text-[#2BE7B8] sm:p-2 p-[1px] pt-1.5 rounded-xl flex flex-col items-center text-center w-[78px] h-[100px]  sm:w-28 md:w-32 sm:h-28 md:h-34 border-2 border-black shadow-sm shadow-black "
                 >
                   <img
                     src={feature.icon}
@@ -53,7 +53,7 @@ const Hero = () => {
             </div>
           </div>
           {/* image  */}
-          <div className="hidden sm:flex">
+          <div className="hidden sm:flex md:pt-[4%] lg:pt-[0%]">
             <img
               src={girlLogo}
               alt="Capital Curv girl Logo"
