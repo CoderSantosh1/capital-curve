@@ -1,50 +1,66 @@
 import React from "react";
-import "./components.css";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import { Navigation } from "swiper/modules";
 import Rf from "../assets/Earn and grow image.svg";
 import Tr from "../assets/Trade image.svg";
 import Jo from "../assets/Join image.svg";
+
 const steps = [
   {
     title: "Join",
-    description: "Open your Demat account, and complete the verification",
-    image: Jo, // Replace with actual image
+    description: "Open your Demat account and complete the verification.",
+    image: Jo,
   },
   {
     title: "Trade",
-    description: "Enter the evaluation process and prove your trading skills",
-    image: Tr, // Replace with actual image
+    description: "Enter the evaluation process and prove your trading skills.",
+    image: Tr,
   },
   {
     title: "Earn & Grow",
-    description:
-      "Secure funding up to Rs. 30 lakh and trade with supreme confidence",
-    image: Rf, // Replace with actual image
+    description: "Secure funding up to Rs. 30 lakh and trade with confidence.",
+    image: Rf,
   },
 ];
 
 const ProcessSteps = () => {
   return (
-    <div className="max-w-6xl mx-auto px-4 py-12 text-center">
-      <h2 className="text-[38px] font-bold text-[#34c7a2] mb-8">
+    <div className="max-w-6xl mx-auto px-4 py-12">
+      {/* Header */}
+      <h2 className="text-3xl sm:text-4xl font-bold text-[#34c7a2] text-center mb-8">
         Process explained in <span className="font-bold">3-steps</span>
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      {/* Swiper */}
+      <Swiper
+        breakpoints={{
+          320: { slidesPerView: 1, spaceBetween: 15 }, // Mobile
+          640: { slidesPerView: 2, spaceBetween: 20 }, // Tablet
+          1024: { slidesPerView: 3, spaceBetween: 30 }, // Desktop
+        }}
+        modules={[Navigation]}
+        navigation
+        className="mySwiper"
+      >
         {steps.map((step, index) => (
-          <div
-            key={index}
-            className="bg-gradient-to-b box rounded-lg h-[250px] w-[300px] shadow-lg border-black  border-2 p-6 flex flex-col items-center transition-transform transform hover:scale-105 "
-          >
-            <img
-              src={step.image}
-              alt={step.title}
-              className="w-20 h-20 mb-4 object-contain"
-            />
-            <h3 className="text-lg font-bold mb-2">{step.title}</h3>
-            <p className="text-gray-600 text-sm">{step.description}</p>
-          </div>
+          <SwiperSlide key={index} className="flex justify-center">
+            <div className="bg-white shadow-lg rounded-2xl border border-gray-200 p-6 flex flex-col items-center text-center max-w-sm w-full h-[300px] sm:h-[350px] transition-transform transform hover:scale-105">
+              <img
+                src={step.image}
+                alt={step.title}
+                className="w-24 h-24 sm:w-28 sm:h-28 object-contain mb-4"
+              />
+              <h3 className="text-lg sm:text-xl font-semibold mb-2">{step.title}</h3>
+              <p className="text-gray-600 text-sm sm:text-base">{step.description}</p>
+            </div>
+          </SwiperSlide>
         ))}
-      </div>
-      <div className="mt-8 border-t-2 border-black w-[500px] h-1 mx-auto"></div>
+      </Swiper>
+
+      {/* Divider */}
+      <div className="mt-8 border-t-2 border-black w-[80%] max-w-lg mx-auto"></div>
     </div>
   );
 };

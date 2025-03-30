@@ -27,7 +27,7 @@ const CapitalCurvAppInfo = () => {
                   experience & much more! Best part? The App is constantly
                   evolving!
                 </p>
-                <button className="sm:mt-[100px] mt-[15%] bg-yellow-500 text-black font-bold  py-3 px-[3%] sm:px-6 rounded-2xl text-[16px] text-lg  sm:text-lg shadow-md hover:bg-yellow-600 transition duration-300 sm:ml-[17%]shadow-lg relative overflow-hidden hover:underline">
+                <button className="sm:mt-[100px] mt-[15%] bg-yellow-500 text-black font-bold  py-3 px-[3%] sm:px-6 rounded-2xl text-[16px] text-lg  sm:text-lg  hover:bg-yellow-600 transition duration-300 sm:ml-[35%] shadow-lg relative overflow-hidden hover:underline">
                   Explore Mobile App →
                 </button>
       
