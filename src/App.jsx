@@ -13,9 +13,9 @@ function App() {
       <Navbar/>
       <Hero/>
       <CapitalCurvAppInfo/>
-      <ProcessSteps/>
+      {/* <ProcessSteps/>
       <PricingPlans/>
-      <WhyChooseUs/>
+      <WhyChooseUs/> */}
      <Footer/>
     </div>
   )
