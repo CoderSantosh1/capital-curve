@@ -1,22 +1,23 @@
 import './App.css'
-import CapitalCurvAppInfo from './components/CapitalCurvAppInfo'
-import Hero from './components/Hero'
-import PricingPlans from './components/PricingPlans'
-import ProcessSteps from './components/ProcessSteps'
-import WhyChooseUs from './components/WhyChooseUs'
-import Footer from './Footer'
-import Navbar from './Navbar'
+import CapitalCurvAppInfo from './components/CapitalCurvAppInfo/CapitalCurvAppInfo';
+import Hero from './components/Hero/Hero';
+import ProcessSteps from "./components/ProcessSteps/ProcessSteps";
+import PricingPlans from "./components/PricingPlans/PricingPlans";
+
+import Footer from './Footer';
+import Navbar from './Navbar';
+import Whychooseus from './components/WhyChooseUs/WhyChooseUs';
 
 function App() {
   return (
     <div>
       <Navbar/>
       <Hero/>
-      <CapitalCurvAppInfo/>
+     <CapitalCurvAppInfo/>
       <ProcessSteps/>
       <PricingPlans/>
-      <WhyChooseUs/>
-     <Footer/>
+     <Whychooseus/>
+     <Footer/> 
     </div>
   )
 }

@@ -1,7 +1,8 @@
 import React from "react";
-import AppLayout from "./AppLayout";
+
 // import MobileMockup from "./assets/mobile-mockup.png"; // Replace with your image path
-import Mobile from "../assets/phone png.png";
+import Mobile from "../../assets/phone png.png";
+import AppLayout from "../AppLayout";
 const CapitalCurvAppInfo = () => {
   return (
     <div className="w-full bg-[#0f3D3E]  h-[100%] sm:h-[680px] md:h-[710px] mt-[.2%]">

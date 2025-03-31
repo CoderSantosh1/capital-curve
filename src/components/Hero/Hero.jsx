@@ -1,18 +1,19 @@
 import React from "react";
-import AppLayout from "./AppLayout";
-import girlLogo from "../assets/The girl image.svg";
-import ico1 from "../assets/Icon Graphic 1.svg";
-import ico2 from "../assets/IconGraphic 2.svg";
-import ico3 from "../assets/Icon Graphic 3.svg";
-import ico4 from "../assets/Icon Graphic 4.svg";
 
+import girlLogo from "../../assets/The girl image.svg";
+import ico1 from "../../assets/Icon Graphic 1.svg";
+import ico2 from "../../assets/IconGraphic 2.svg";
+import ico3 from "../../assets/Icon Graphic 3.svg";
+import ico4 from "../../assets/Icon Graphic 4.svg";
+import "./Hero.css"
+import AppLayout from "../AppLayout";
 const Hero = () => {
   return (
-    <div className="bg-gradient-to-b shadow-2xl custom-gradient md:h-[700px] flex flex-col items-start justify-start md:px-4 sm:px-[2%] pb-4 p-[.5%] sm:mt-[-7%] md:mt-[-0%]">
+    <div className="bg-gradient-to-b shadow-2xl custom-gradient md:h-[700px] flex flex-col items-start justify-start md:px-4 sm:px-[2%] pb-4 p-[.5%]  md:mt-[-0%]">
       <AppLayout>
         <div className="grid sm:grid-cols-2 gap-8 ">
           <div className="">
-            <div className="text-center sm:max-w-2xl mt-[20px] sm:mt-[10px] sm:pt-[20%] md:pt-[0%]">
+            <div className="text-center sm:max-w-2xl mt-[18%] sm:mt-[10px] sm:pt-[20%] md:pt-[0%]">
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black p-[.5%]">
                 Learn, Prove, and Trade with
                 <span className="text-[#107D6B]"> Confidence!</span>

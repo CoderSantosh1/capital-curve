@@ -19,8 +19,8 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="max-w-[1450px] m-auto xl:mt-3 ">
-      <nav className="bg-[#00324D]  text-white px-6 lg:px-12 py-4 flex items-center justify-between shadow-md  lg:rounded-2xl h-[60px]">
+    <div className="fixed top-0 left-0 w-full flex justify-center transition-transform duration-200 transform z-50">
+      <nav className="bg-[#00324D] text-white px-6 lg:px-12 py-4 flex items-center justify-between shadow-md sm:rounded-2xl h-[60px] sm:max-w-[calc(100%-5%)] md:max-w-[calc(100%-11%)] w-full">
         {/* Logo */}
         <div className="flex items-center space-x-2">
           <div className="rounded-xl">

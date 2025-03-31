@@ -1,0 +1,94 @@
+import React from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import ATC from "../../assets/Access to capital.svg";
+import PG from "../../assets/Payout gurantee.svg";
+import NPR from "../../assets/no personal risk.svg";
+import Suport from "../../assets/247.svg";
+
+
+const features = [
+  {
+    title: "Access to Capital",
+    description:
+      "Start trading with real funds after passing our evaluation process.",
+    icon: ATC,
+  },
+  {
+    title: "Payout Guarantee",
+    description: "Reliable Payout Policy",
+    icon: PG,
+  },
+  {
+    title: "No Personal Risk",
+    description:
+      "We take on the financial risk. Your job is to trade and earn a share of the profits.",
+    icon: NPR,
+  },
+  {
+    title: "24/7 Support",
+    description: "On-site Chat Support",
+    icon: Suport,
+  },
+];
+
+const settings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 4,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 3000,
+  responsive: [
+    {
+      breakpoint: 1024, 
+      settings: { slidesToShow: 3, autoplay: true },
+    },
+    {
+      breakpoint: 768, 
+      settings: { slidesToShow: 2, autoplay: true }, // Disable autoplay for mobile
+    },
+    {
+      breakpoint: 480, 
+      settings: { slidesToShow: 1, autoplay: true }, // Disable autoplay for smaller screens
+    },
+  ],
+};
+
+
+const Whychooseus = () => {
+  return (
+    <section className="py-[2%] sm:py-12  sm:px-4  text-center bg-white mb-[8%] sm:mb-[1%]">
+      <h2 className="text-[32px] sm:text-4xl md:text-5xl font-bold text-gray-900 mb-8">
+        Why Choose Us?
+      </h2>
+
+      {/* Slick Slider */}
+      <div className="max-w-7xl mx-auto px-[7%] sm:px-4">
+        <Slider {...settings}>
+          {features.map((feature, index) => (
+            <div key={index} className="sm:px-3">
+              <div className="p-6 bg-[#214D69] rounded-xl shadow-md hover:shadow-lg transition duration-300 hover:-translate-y-2 flex flex-col items-center text-center">
+                <img
+                  src={feature.icon}
+                  alt={feature.title}
+                  className="h-[80px] mb-2"
+                />
+                <h3 className="text-lg font-semibold text-[#2BE7B8] mb-2">
+                  {feature.title}
+                </h3>
+                <p className="text-sm text-gray-300 leading-relaxed">
+                  {feature.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </Slider>
+      </div>
+    </section>
+  );
+};
+
+export default Whychooseus;
