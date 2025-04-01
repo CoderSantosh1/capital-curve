@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Rf from "../../assets/Earn and grow image.svg";
 import Tr from "../../assets/Trade image.svg";
 import Jo from "../../assets/Join image.svg";
-import "./ProcessSteps.css"
+import "./ProcessSteps.css";
 const steps = [
   {
     title: "Join",
@@ -50,31 +50,37 @@ const ProcessSteps = () => {
   };
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-[2%] text-center ">
+    <div className="max-w-6xl mx-auto px-4 py-6 text-center">
       {/* Header */}
-      <h2 className="text-[32px] sm:text-4xl md:text-5xl font-bold text-[#34c7a2] mb-8">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#34c7a2] mb-6">
         Process explained in <span className="font-bold">3-steps</span>
       </h2>
 
       {/* Slick Slider */}
-      <Slider {...settings} className="mx-[2%] bg-white p-[2%]">
-        {steps.map((step, index) => (
-          <div key={index} className="flex justify-center   gap-2">
-            <div className="bg-white box shadow-lg rounded-2xl border border-gray-200 p-6 flex flex-col items-center text-center max-w-sm w-full h-[300px] sm:h-[300px] sm:w-[300px] transition-transform transform hover:scale-105">
-              <img
-                src={step.image}
-                alt={step.title}
-                className="w-24 h-24 sm:w-28 sm:h-28 object-contain mb-4"
-              />
-              <h3 className="text-lg sm:text-xl font-semibold mb-2">{step.title}</h3>
-              <p className="text-gray-600 text-sm sm:text-base">{step.description}</p>
+      <div className="relative overflow-visible">
+        <Slider {...settings} className="mx-auto bg-white p-4">
+          {steps.map((step, index) => (
+            <div key={index} className="flex justify-center relative py-3">
+              <div className="box shadow-xl rounded-xl border border-gray-300 p-5 flex flex-col items-center text-center w-[260px] sm:w-[280px] md:w-[300px] h-[280px] transition-transform duration-300 hover:scale-105 hover:z-10">
+                <img
+                  src={step.image}
+                  alt={step.title}
+                  className="w-20 h-20 sm:w-24 sm:h-24 object-contain mb-3"
+                />
+                <h3 className="text-lg sm:text-xl font-semibold mb-2">
+                  {step.title}
+                </h3>
+                <p className="text-gray-600 text-sm sm:text-base">
+                  {step.description}
+                </p>
+              </div>
             </div>
-          </div>
-        ))}
-      </Slider>
+          ))}
+        </Slider>
+      </div>
 
       {/* Divider */}
-      <div className="mt-8 border-t-2 border-black w-[80%] max-w-lg mx-auto my-2"></div>
+      <div className="mt-6 border-t-2 border-black w-4/5 max-w-lg mx-auto"></div>
     </div>
   );
 };
