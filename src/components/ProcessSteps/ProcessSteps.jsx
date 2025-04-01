@@ -58,10 +58,10 @@ const ProcessSteps = () => {
 
       {/* Slick Slider */}
       <div className="relative overflow-visible">
-        <Slider {...settings} className="mx-auto bg-white p-4">
+        <Slider {...settings} className="mx-auto  p-4">
           {steps.map((step, index) => (
             <div key={index} className="flex justify-center relative py-3">
-              <div className="box shadow-xl rounded-xl border border-gray-300 p-5 flex flex-col items-center text-center w-[260px] sm:w-[280px] md:w-[300px] h-[280px] transition-transform duration-300 hover:scale-105 hover:z-10">
+              <div className="box shadow-lg rounded-xl border border-gray-300 p-5 flex flex-col items-center text-center w-[260px] sm:w-[280px] md:w-[310px] h-[280px] transition-transform duration-300 hover:scale-105 hover:z-10">
                 <img
                   src={step.image}
                   alt={step.title}
