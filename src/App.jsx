@@ -1,12 +1,13 @@
 import './App.css'
-import CapitalCurvAppInfo from './components/CapitalCurvAppInfo/CapitalCurvAppInfo';
+import CapitalCurvAppInfo from "./components/CapitalCurvAppInfo/CapitalCurvAppInfo"
 import Hero from './components/Hero/Hero';
 import ProcessSteps from "./components/ProcessSteps/ProcessSteps";
 import PricingPlans from "./components/PricingPlans/PricingPlans";
 
 import Footer from './Footer';
 import Navbar from './Navbar';
-import Whychooseus from './components/Chooseus/WhyChooseUs';
+import Capital from './components/WCU/Capital';
+
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
      <CapitalCurvAppInfo/>
       <ProcessSteps/>
       <PricingPlans/>
-     <Whychooseus/>
+     <Capital/>
      <Footer/> 
     </div>
   )

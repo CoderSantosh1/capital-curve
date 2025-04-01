@@ -55,10 +55,9 @@ const settings = {
     },
   ],
 };
-
-const Whychooseus = () => {
+const Capital = () => {
   return (
-    <section className="py-8 sm:py-12 px-4 text-center mb-10 sm:mb-4">
+        <section className="py-8 sm:py-12 px-4 text-center mb-10 sm:mb-4">
       <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6 sm:mb-8">
         Why Choose Us?
       </h2>
@@ -92,7 +91,7 @@ const Whychooseus = () => {
         </Slider>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Whychooseus;
+export default Capital
