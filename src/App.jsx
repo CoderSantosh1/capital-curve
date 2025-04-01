@@ -6,7 +6,7 @@ import PricingPlans from "./components/PricingPlans/PricingPlans";
 
 import Footer from './Footer';
 import Navbar from './Navbar';
-import Whychooseus from './components/WhyChooseUs/WhyChooseUs';
+import Whychooseus from './components/Chooseus/WhyChooseUs';
 
 function App() {
   return (
