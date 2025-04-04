@@ -50,38 +50,42 @@ const ProcessSteps = () => {
   };
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-6 text-center">
-      {/* Header */}
-      <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#34c7a2] mb-6">
-        Process explained in <span className="font-bold">3-steps</span>
+    <section className="py-4 sm:py-12 px-4 text-center mb-4 sm:mb-4">
+      <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6 sm:mb-8">
+        Why Choose Us?
       </h2>
 
       {/* Slick Slider */}
-      <div className="relative overflow-visible">
-        <Slider {...settings} className="mx-auto  p-4">
-          {steps.map((step, index) => (
-            <div key={index} className="flex justify-center relative py-3">
-              <div className="box shadow-lg rounded-xl border border-gray-300 p-5 flex flex-col items-center text-center w-[260px] sm:w-[280px] md:w-[310px] h-[280px] transition-transform duration-300 hover:scale-105 hover:z-10">
-                <img
-                  src={step.image}
-                  alt={step.title}
-                  className="w-20 h-20 sm:w-24 sm:h-24 object-contain mb-3"
-                />
-                <h3 className="text-lg sm:text-xl font-semibold mb-2">
-                  {step.title}
-                </h3>
-                <p className="text-gray-600 text-sm sm:text-base">
-                  {step.description}
-                </p>
+      <div className="max-w-7xl mx-auto  sm:px-4 min-h-[22rem] relative overflow-visible ">
+        <Slider {...settings} className="overflow-visible">
+          {steps.map((feature, index) => (
+            <div
+              key={index}
+              className="px-2 sm:px-3 relative  overflow-visible py-3"
+            >
+              {/* Wrapper div to prevent cutting issue */}
+              <div className="relative">
+                <div className="p-6 box  rounded-xl shadow-md hover:shadow-xl transition-transform duration-300 hover:-translate-y-2 flex flex-col items-center text-center min-h-[16rem] pb-4">
+                  <img
+                    src={feature.image}
+                    alt={feature.title}
+                    className="h-20 mb-2"
+                  />
+                  <h3 className="text-lg font-bold text-[#000000] mb-2">
+                    {feature.title}
+                  </h3>
+                  <p className="text-base text-gray-800 leading-relaxed">
+                    {feature.description}
+                  </p>
+                </div>
               </div>
             </div>
           ))}
         </Slider>
       </div>
 
-      {/* Divider */}
       <div className="mt-6 border-t-2 border-black w-4/5 max-w-lg mx-auto"></div>
-    </div>
+    </section>
   );
 };
 

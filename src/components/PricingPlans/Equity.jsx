@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 const Equity = () => {
   const [expandedCard, setExpandedCard] = useState(null);
-
+const [selectedCardIndex, setSelectedCardIndex] = useState(1); 
   const cards = [
     {
       isTradingBalance: true,
@@ -101,11 +101,11 @@ const Equity = () => {
   };
 
   return (
-    <AppLayout>
+     <AppLayout>
       <div className="container sm:mx-auto sm:px-4 sm:py-6 flex flex-wrap justify-between">
         {/* Fixed Trading Balance Card */}
         <div className="bg-white shadow-md rounded-l-lg sm:p-4 h-[538px] sm:h-[572px] w-[130px] sm:w-[50%] md:w-[30%] sticky top-6 sm:top-auto z-10 mb-6 sm:mb-0">
-          <h2 className="text-[16px] sm:text-lg font-bold text-gray-800 my-3 text-center">
+          <h2 className="text-[16px] sm:text-lg font-bold text-gray-800 my-3 text-center pt-2 sm:pt-0">
             {cards[0].title}
           </h2>
           <ul className="space-y-2 sm:space-y-3 text-center">
@@ -129,44 +129,46 @@ const Equity = () => {
         </div>
 
         {/* Pricing Cards Slider */}
-        <div className="w-full sm:w-[50%] md:w-[70%]">
+        <div className="w-[190px] sm:w-[50%] md:w-[70%]">
           <Slider {...sliderSettings}>
-            {cards.slice(1).map((card, index) => (
-              <div
-                key={index}
-                className={`bg-white shadow-md rounded-r-lg pb-2 sm:p-4 h-full sm:h-full w-[300px] transition-all duration-300 hover:scale-105 hover:z-10 ${
-                  card.selected ? "ring-2 ring-indigo-500" : ""
-                }`}
-                onMouseEnter={() => setExpandedCard(index)}
-                onMouseLeave={() => setExpandedCard(null)}
-              >
-                <h2 className="text-lg font-bold text-gray-800 my-2.5 sm:my-4 text-center">
-                  {card.price}
-                </h2>
-                <ul className="space-y-2 sm:space-y-3 text-center">
-                  {card.features.map((feature, i) => (
-                    <li
-                      key={i}
-                      className="p-2 rounded-md bg-gray-50 text-sm font-medium text-gray-800 mt-3"
-                    >
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-                <h2 className="text-lg font-bold text-gray-800 text-center mt-8">
-                  {card.Allcost}
-                </h2>
-                <button
-                  className={`mt-3 w-full py-2 rounded-md text-sm font-medium transition-all duration-300 ${
-                    card.selected
-                      ? "bg-indigo-600 text-white"
-                      : "bg-gray-200 text-gray-800 hover:bg-gray-300"
+            {cards.slice(1).map((card, index) => {
+              const isSelected = selectedCardIndex === index;
+              return (
+                <div
+                  key={index}
+                  className={`bg-white shadow-md rounded-r-lg pb-2 sm:p-4 h-full w-[300px] transition-all duration-300 hover:scale-105 hover:z-10 ${
+                    isSelected ? "ring-2 ring-indigo-500" : ""
                   }`}
                 >
-                  {card.selected ? "Current Plan" : "Choose Plan"}
-                </button>
-              </div>
-            ))}
+                  <h2 className="text-lg font-bold text-gray-800 my-2.5 sm:my-4 text-center">
+                    {card.price}
+                  </h2>
+                  <ul className="space-y-2 sm:space-y-3 text-center">
+                    {card.features.map((feature, i) => (
+                      <li
+                        key={i}
+                        className="p-2 rounded-md bg-gray-50 text-sm font-medium text-gray-800 mt-3"
+                      >
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                  <h2 className="text-lg font-bold text-gray-800 text-center mt-8">
+                    {card.Allcost}
+                  </h2>
+                  <button
+                    onClick={() => setSelectedCardIndex(index)}
+                    className={`mt-3 w-full py-2 rounded-md text-sm font-medium transition-all duration-300 ${
+                      isSelected
+                        ? "bg-indigo-600 text-white"
+                        : "bg-gray-200 text-gray-800 hover:bg-gray-300"
+                    }`}
+                  >
+                    {isSelected ? "Choose Plan" : "Selected"}
+                  </button>
+                </div>
+              );
+            })}
           </Slider>
         </div>
       </div>

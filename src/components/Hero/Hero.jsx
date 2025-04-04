@@ -36,7 +36,7 @@ const Hero = () => {
               {features.map((feature, index) => (
                 <div
                   key={index}
-                  className="btn text-[#2BE7B8] sm:p-2 p-[1px] pt-1.5 rounded-xl flex flex-col items-center text-center w-[78px] h-[100px]  sm:w-28 md:w-32 sm:h-28 md:h-34 border-2 border-black shadow-sm shadow-black "
+                  className="btn text-[#2BE7B8] sm:p-2 p-[1px] pt-1.5 rounded-xl flex flex-col items-center text-center w-[82px] h-[92px]  sm:w-28 md:w-32 sm:h-28 md:h-34 border-2 border-black shadow-sm shadow-black "
                 >
                   <img
                     src={feature.icon}
