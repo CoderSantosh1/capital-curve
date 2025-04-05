@@ -55,7 +55,7 @@ const TermsAndConditions = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-100 p-4 sm:p-8">
+    <div className="min-h-screen bg-gray-100 p-4 sm:p-8 mt-4 md:mt-8 ">
       <div className="max-w-4xl mx-auto bg-white shadow-md rounded-lg p-6 sm:p-10">
         <h1 className="text-3xl font-bold text-center mb-8 text-blue-700">
           Terms and Conditions

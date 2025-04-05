@@ -2,7 +2,7 @@ import React from "react";
 
 const FAQPage = () => {
   return (
-    <div className="max-w-4xl mx-auto px-4 py-10 text-gray-800">
+    <div className="max-w-4xl mt-4 md:mt-8 mx-auto px-4 py-10 text-gray-800">
       <h1 className="text-3xl sm:text-4xl font-bold mb-6 text-center">FAQ - Privacy Policy & Terms</h1>
 
       {/* Privacy Policy */}

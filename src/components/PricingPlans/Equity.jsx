@@ -104,7 +104,7 @@ const [selectedCardIndex, setSelectedCardIndex] = useState(1);
      <AppLayout>
       <div className="container sm:mx-auto sm:px-4 sm:py-6 flex flex-wrap justify-between">
         {/* Fixed Trading Balance Card */}
-        <div className="bg-white shadow-md rounded-l-lg sm:p-4 h-[538px] sm:h-[572px] w-[130px] sm:w-[50%] md:w-[30%] sticky top-6 sm:top-auto z-10 mb-6 sm:mb-0">
+        <div className="bg-white shadow-md rounded-l-lg sm:p-4 h-[538px] sm:h-[572px] w-[135px] sm:w-[50%] md:w-[30%] sticky top-6 sm:top-auto z-10 mb-6 sm:mb-0">
           <h2 className="text-[16px] sm:text-lg font-bold text-gray-800 my-3 text-center pt-2 sm:pt-0">
             {cards[0].title}
           </h2>
@@ -156,6 +156,7 @@ const [selectedCardIndex, setSelectedCardIndex] = useState(1);
                   <h2 className="text-lg font-bold text-gray-800 text-center mt-8">
                     {card.Allcost}
                   </h2>
+
                   <button
                     onClick={() => setSelectedCardIndex(index)}
                     className={`mt-3 w-full py-2 rounded-md text-sm font-medium transition-all duration-300 ${
@@ -166,6 +167,8 @@ const [selectedCardIndex, setSelectedCardIndex] = useState(1);
                   >
                     {isSelected ? "Choose Plan" : "Selected"}
                   </button>
+
+                  
                 </div>
               );
             })}
