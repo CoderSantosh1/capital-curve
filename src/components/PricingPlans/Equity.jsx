@@ -4,9 +4,10 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const Equity = () => {
+const Equity = ({ setPriceAndPlan }) => {
   const [expandedCard, setExpandedCard] = useState(null);
 const [selectedCardIndex, setSelectedCardIndex] = useState(1); 
+
   const cards = [
     {
       isTradingBalance: true,
@@ -22,6 +23,7 @@ const [selectedCardIndex, setSelectedCardIndex] = useState(1);
         { name: "Trading Period: 30 Days" },
       ],
       price: "Price",
+      Allcost : "10"
     },
     {
       price: "$5,00,000",
@@ -36,6 +38,7 @@ const [selectedCardIndex, setSelectedCardIndex] = useState(1);
         "30 Days",
       ],
       Allcost: "₹9,999",
+      amount:"9999",
       selected: false,
     },
     {
@@ -51,6 +54,7 @@ const [selectedCardIndex, setSelectedCardIndex] = useState(1);
         "30 Days",
       ],
       Allcost: "₹17,999",
+      amount:"17999",
       selected: true,
     },
     {
@@ -66,9 +70,16 @@ const [selectedCardIndex, setSelectedCardIndex] = useState(1);
         "30 Days",
       ],
       Allcost: "₹30,999",
+      amount:"309999",
       selected: false,
     },
   ];
+  const handleCardClick = (allCost,index) => {
+
+    setPriceAndPlan(allCost);
+    setSelectedCardIndex(index)
+  };
+  
 
   const sliderSettings = {
     infinite: true,
@@ -157,7 +168,7 @@ const [selectedCardIndex, setSelectedCardIndex] = useState(1);
                     {card.Allcost}
                   </h2>
                   <button
-                    onClick={() => setSelectedCardIndex(index)}
+                    onClick={() => handleCardClick(card.amount,index)}
                     className={`mt-3 w-full py-2 rounded-md text-sm font-medium transition-all duration-300 ${
                       isSelected
                         ? "bg-indigo-600 text-white"
