@@ -4,7 +4,8 @@ import Fq from "./Fq";
 
 const PricingPlans = () => {
   const [selectedPlan, setSelectedPlan] = useState("equity");
-  const [selectedPrice, setSelectedPrice] = useState("₹9,999");
+  const [selectedPrice, setSelectedPrice] = useState(9999);
+  const [selectedAdd, setSelectedAdd] = useState(9999);
 
   // const [expandedCard, setExpandedCard] = useState(null);
   const [selected, setSelected] = useState("None");
@@ -15,15 +16,43 @@ const PricingPlans = () => {
       name: "Profit Split",
       value: "Profit Split",
       extra: "+20%",
+      add: "20%",
       description: "80/10 profit split",
     },
     {
       name: "Weekly Payouts",
       value: "Weekly Payouts",
       extra: "+5%",
+      add:"5%",
       description: "Instead of 20 days",
     },
   ];
+
+  function setPriceAndPlan(price) {
+    setSelectedPrice(price);
+    setSelectedAdd(price); // or whatever plan is appropriate
+  }
+  
+   function handleSelectedPrice(percent,addVal)
+  {
+    console.log(typeof percent);
+    console.log( selectedPrice);
+    let price = parseInt(selectedPrice)
+    let value = addPercentage(percent,price);
+    setSelected(addVal)
+    if(addVal === "None")
+    {
+      value = selectedAdd;
+    }
+    setSelectedPrice(value)
+  }
+
+  function addPercentage(percentStr, baseValue) {
+    const percent = parseFloat(percentStr) / 100; // Convert "20%" to 0.2
+    const result = baseValue + (baseValue * percent);
+    console.log(result);
+    return result;
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-900 to-teal-500 sm:p-6 flex flex-col items-center text-white rounded-tl-[100px] rounded-tr-[100px] md:rounded-tl-[200px] md:rounded-tr-[200px]">
@@ -52,7 +81,7 @@ const PricingPlans = () => {
       </div>
 
       {/* Conditional rendering of components */}
-      {selectedPlan === "equity" ? <Equity /> : <Fq />}
+      {selectedPlan === "equity" ? <Equity setPriceAndPlan={setPriceAndPlan} /> : <Fq  />}
       {/* Add-ons Section */}
 
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mt-6" >
@@ -77,7 +106,7 @@ const PricingPlans = () => {
               name="addons"
               value={addon.value}
               checked={selected === addon.value}
-              onChange={() => setSelected(addon.value)}
+              onChange={() => handleSelectedPrice(addon.add,addon.value)}
               className="hidden"
             />
             <div
@@ -109,7 +138,7 @@ const PricingPlans = () => {
       <div className=" mt-4 sm:mt-8 bg-white p-1 sm:p-1 rounded-lg shadow-lg text-gray-900 text-center w-[150px] h-[70px]  sm:w-full max-w-md mx-auto">
         <p className="text-lg sm:text-xl font-bold">Price</p>
         <p className="text-2xl sm:text-3xl font-extrabold text-blue-600">
-          {selectedPrice}
+        ₹{Math.round(selectedPrice).toLocaleString("en-IN")}
         </p>
       </div>
 
