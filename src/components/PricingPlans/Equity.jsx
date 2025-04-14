@@ -26,7 +26,7 @@ const [selectedCardIndex, setSelectedCardIndex] = useState(1);
       Allcost : "10"
     },
     {
-      price: "$5,00,000",
+      price: "₹5,00,000",
       features: [
         "Free access",
         "10%",
@@ -42,7 +42,7 @@ const [selectedCardIndex, setSelectedCardIndex] = useState(1);
       selected: false,
     },
     {
-      price: "$10,00,000",
+      price: "₹10,00,000",
       features: [
         "Free access",
         "10%",
@@ -58,7 +58,7 @@ const [selectedCardIndex, setSelectedCardIndex] = useState(1);
       selected: true,
     },
     {
-      price: "$20,00,000",
+      price: "₹20,00,000",
       features: [
         "Free access",
         "10%",
@@ -70,7 +70,23 @@ const [selectedCardIndex, setSelectedCardIndex] = useState(1);
         "30 Days",
       ],
       Allcost: "₹30,999",
-      amount:"309999",
+      amount:"30999",
+      selected: false,
+    },
+     {
+      price: "₹30,00,000",
+      features: [
+        "Free access",
+        "10%",
+        "12%",
+        "8%",
+        "4%",
+        "90%",
+        "7 Days",
+        "30 Days",
+      ],
+      Allcost: "₹39,999",
+      amount:"39999",
       selected: false,
     },
   ];
@@ -176,7 +192,7 @@ const [selectedCardIndex, setSelectedCardIndex] = useState(1);
                         : "bg-gray-200 text-gray-800 hover:bg-gray-300"
                     }`}
                   >
-                    {isSelected ? "Choose Plan" : "Selected"}
+                    {isSelected ? " Selected " : "Choose Plan"}
                   </button>
 
                   

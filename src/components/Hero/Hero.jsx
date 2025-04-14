@@ -5,8 +5,9 @@ import ico1 from "../../assets/Icon Graphic 1.svg";
 import ico2 from "../../assets/IconGraphic 2.svg";
 import ico3 from "../../assets/Icon Graphic 3.svg";
 import ico4 from "../../assets/Icon Graphic 4.svg";
-import "./Hero.css"
+import "./Hero.css";
 import AppLayout from "../AppLayout";
+import { Link } from "react-router-dom";
 const Hero = () => {
   return (
     <div className="bg-gradient-to-b shadow-2xl custom-gradient md:h-[700px] flex flex-col items-start justify-start md:px-4 sm:px-[2%] pb-4 p-[.5%]  md:mt-[-0%]">
@@ -46,7 +47,7 @@ const Hero = () => {
                   <p className="md:mt-3 leading-4 mt-1 font-semibold md:text-[16px] sm:text-[13px] text-[10px]">
                     {feature.title}
                   </p>
-                  <p className="md:text-[10px] sm:text-[9px] text-[7px] text-white">
+                  <p className="md:text-[10px] sm:text-[9px] text-[7px] text-white mt-2">
                     {feature.pg}
                   </p>
                 </div>
@@ -64,9 +65,11 @@ const Hero = () => {
         </div>
         {/* CTA Button */}
         <div className="flex items-center justify-center mt-[2%] sm:mt-[2px] md:mt-[-3%]">
-          <button className="mt-2 sm:w-[300px] bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-6 rounded-[25px] sm:rounded-lg text-lg shadow-lg transition duration-300 relative overflow-hidden hover:underline">
-            Get Started Now →
-          </button>
+          <Link to="/pricing">
+            <button className="mt-2 sm:w-[300px] bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-6 rounded-[25px] sm:rounded-lg text-lg shadow-lg transition duration-300 relative overflow-hidden hover:underline">
+              Get Started Now →
+            </button>
+          </Link>
         </div>
       </AppLayout>
     </div>
@@ -75,23 +78,23 @@ const Hero = () => {
 
 const features = [
   {
-    title: "Upto 90%",
-    pg: "of profit split",
+    title: "Market News",
+    pg: "Cotinous Market's Update",
     icon: ico1,
   },
   {
-    title: "Live Trading",
-    pg: "Partnered with angel one",
+    title: "Paper Trading",
+    pg: "Trades with demo Accounts",
     icon: ico2,
   },
   {
-    title: "Flexible Payouts",
-    pg: "Based on your plan",
+    title: "24/7 Support ",
+    pg: "On site Chat Support",
     icon: ico3,
   },
   {
-    title: "Up to 30Lakhs",
-    pg: "Trading account",
+    title: "Up to 30Lakhs ",
+    pg: "Demo Trading account",
     icon: ico4,
   },
 ];

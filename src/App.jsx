@@ -12,16 +12,24 @@ import Layout from "./Layout";
 import TermsAndConditions from "./components/pages/TermsofUse";
 import FAQPage from "./components/pages/Faq";
 import About from "./components/pages/About";
+import SignUp from "./components/LogIn/SignUp";
+import Login from "./components/LogIn/Login";
+import ComingSoon from "./ComingSoon";
+import MB from "./components/CapitalCurvAppInfo/MB";
 
 function App() {
   return (
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Layout/>} />
-         <Route path="/" element={<Hero/>} />
-          <Route path="/termsAndConditions" element={<TermsAndConditions/>} />
-         <Route path="/faqs" element={<FAQPage/>} />
+        <Route path="/" element={<Layout />} />
+        <Route path="/" element={<Hero />} />
+        <Route path="/termsAndConditions" element={<TermsAndConditions />} />
+        <Route path="/faqs" element={<FAQPage />} />
+        <Route path="/signUp" element={<SignUp />} />
+         <Route path="/logIn" element={<Login />} />
+         <Route path="/ComingSoon" element={<ComingSoon />} />
+          <Route path="/app" element={<MB />} />
         <Route path="/about" element={<About />} />
         <Route path="/process" element={<ProcessSteps />} />
         <Route path="/pricing" element={<PricingPlans />} />

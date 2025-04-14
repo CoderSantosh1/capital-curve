@@ -13,8 +13,8 @@ const steps = [
     image: Jo,
   },
   {
-    title: "Trade",
-    description: "Enter the evaluation process and prove your trading skills.",
+    title: "Learn",
+    description: "Learn from our recorder master courses.",
     image: Tr,
   },
   {

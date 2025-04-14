@@ -4,9 +4,10 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const Fq = () => {
+const Fq = ({ setPriceAndPlan }) => {
   const [expandedCard, setExpandedCard] = useState(null);
-  const [selectedCardIndex, setSelectedCardIndex] = useState(null);
+const [selectedCardIndex, setSelectedCardIndex] = useState(1); 
+
   const cards = [
     {
       isTradingBalance: true,
@@ -22,9 +23,10 @@ const Fq = () => {
         { name: "Trading Period: 30 Days" },
       ],
       price: "Price",
+      Allcost : "10"
     },
     {
-      price: "5,00,000",
+      price: "₹1,00000",
       features: [
         "Free access",
         "10%",
@@ -35,11 +37,12 @@ const Fq = () => {
         "7 Days",
         "30 Days",
       ],
-      Allcost: "₹9,999",
+      Allcost: "₹8,999",
+      amount:"8999",
       selected: false,
     },
     {
-      price: "10,00,000",
+      price: "₹2,00000",
       features: [
         "Free access",
         "10%",
@@ -51,10 +54,11 @@ const Fq = () => {
         "30 Days",
       ],
       Allcost: "₹17,999",
+      amount:"17999",
       selected: true,
     },
     {
-      price: "20,00,000",
+      price: "₹4,00000",
       features: [
         "Free access",
         "10%",
@@ -65,10 +69,33 @@ const Fq = () => {
         "7 Days",
         "30 Days",
       ],
-      Allcost: "₹30,999",
+      Allcost: "₹29,999",
+      amount:"29999",
+      selected: false,
+    },
+     {
+      price: "₹6,00000",
+      features: [
+        "Free access",
+        "10%",
+        "12%",
+        "8%",
+        "4%",
+        "90%",
+        "7 Days",
+        "30 Days",
+      ],
+      Allcost: "₹34,999",
+      amount:"34999",
       selected: false,
     },
   ];
+  const handleCardClick = (allCost,index) => {
+
+    setPriceAndPlan(allCost);
+    setSelectedCardIndex(index)
+  };
+  
 
   const sliderSettings = {
     infinite: true,
@@ -79,7 +106,7 @@ const Fq = () => {
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 1,
           slidesToScroll: 1,
         },
       },
@@ -101,11 +128,11 @@ const Fq = () => {
   };
 
   return (
-    <AppLayout>
+     <AppLayout>
       <div className="container sm:mx-auto sm:px-4 sm:py-6 flex flex-wrap justify-between">
         {/* Fixed Trading Balance Card */}
-        <div className="bg-white shadow-md rounded-l-lg sm:p-4 h-[538px] sm:h-[572px] w-[130px] sm:w-[50%] md:w-[30%] sticky top-6 sm:top-auto z-10 mb-6 sm:mb-0">
-          <h2 className="text-[16px] sm:text-lg font-bold text-gray-800 my-3 text-center">
+        <div className="bg-white shadow-md rounded-l-lg sm:p-4 h-[538px] sm:h-[572px] w-[135px] sm:w-[50%] md:w-[30%] sticky top-6 sm:top-auto z-10 mb-6 sm:mb-0">
+          <h2 className="text-[16px] sm:text-lg font-bold text-gray-800 my-3 text-center pt-2 sm:pt-0">
             {cards[0].title}
           </h2>
           <ul className="space-y-2 sm:space-y-3 text-center">
@@ -156,16 +183,19 @@ const Fq = () => {
                   <h2 className="text-lg font-bold text-gray-800 text-center mt-8">
                     {card.Allcost}
                   </h2>
+
                   <button
-                    onClick={() => setSelectedCardIndex(index)}
+                    onClick={() => handleCardClick(card.amount,index)}
                     className={`mt-3 w-full py-2 rounded-md text-sm font-medium transition-all duration-300 ${
                       isSelected
                         ? "bg-indigo-600 text-white"
                         : "bg-gray-200 text-gray-800 hover:bg-gray-300"
                     }`}
                   >
-                    {isSelected ? "Current Plan" : "Choose Plan"}
+                    {isSelected ? " Selected " : "Choose Plan"}
                   </button>
+
+                  
                 </div>
               );
             })}

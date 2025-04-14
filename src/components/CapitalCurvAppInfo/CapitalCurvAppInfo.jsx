@@ -3,6 +3,7 @@ import React from "react";
 // import MobileMockup from "./assets/mobile-mockup.png"; // Replace with your image path
 import Mobile from "../../assets/phone png.png";
 import AppLayout from "../AppLayout";
+import { Link } from "react-router-dom";
 const CapitalCurvAppInfo = () => {
   return (
     <div className="w-full bg-[#0f3D3E]  h-[100%] sm:h-[680px] md:h-[710px] mt-[.2%]">
@@ -28,10 +29,11 @@ const CapitalCurvAppInfo = () => {
                   experience & much more! Best part? The App is constantly
                   evolving!
                 </p>
-                <button className="sm:mt-[100px] mt-[15%] bg-yellow-500 text-black font-bold  py-3 px-[3%] sm:px-6 rounded-2xl text-[16px] text-lg  sm:text-lg  hover:bg-yellow-600 transition duration-300 sm:ml-[35%] shadow-lg relative overflow-hidden hover:underline">
-                  Explore Mobile App →
-                </button>
-      
+                <Link to="/app">
+                  <button className="sm:mt-[100px] mt-[15%] bg-yellow-500 text-black font-bold  py-3 px-[3%] sm:px-6 rounded-2xl text-[16px] text-lg  sm:text-lg  hover:bg-yellow-600 transition duration-300 sm:ml-[35%] shadow-lg relative overflow-hidden hover:underline">
+                    Explore Mobile App →
+                  </button>
+                </Link>
               </div>
             </div>
 

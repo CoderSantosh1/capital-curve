@@ -59,9 +59,11 @@ const Navbar = () => {
 
         {/* Buttons */}
         <div className="hidden lg:flex space-x-4">
-          <button className="bg-green-200 text-[18px] text-black px-4 py-2 rounded-lg hover:bg-green-300 font-medium">
-            Sign up
-          </button>
+          <Link to="/signUp">
+            <button className="bg-green-200 text-[18px] text-black px-4 py-2 rounded-lg hover:bg-green-300 font-medium">
+              Sign up
+            </button>
+          </Link>
           <button className="bg-green-400 text-[18px] text-black px-4 py-2 rounded-lg hover:bg-green-500 font-medium">
             Dashboard
           </button>
@@ -91,9 +93,11 @@ const Navbar = () => {
             ))}
 
             <div className="mt-4 space-y-2 mx-[15%]">
-              <button className="bg-[#00324D] text-white px-4 py-2 rounded-lg w-full">
-                Sign up
-              </button>
+              <Link to="/signUp">
+                <button className="bg-[#00324D] text-white px-4 py-2 rounded-lg w-full">
+                  Sign up
+                </button>
+              </Link>
             </div>
             <div className="mt-6">
               <p className="text-[15px] text-center justify-center ">
