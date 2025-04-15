@@ -40,7 +40,9 @@ const Navbar = () => {
             </div>
           </Link>
           <span className="text-[22px] font-bold ">
-            Capital <span className="text-[#2BE7B8]">Curv</span>
+            <Link to="/">
+              Capital <span className="text-[#2BE7B8]">Curv</span>
+            </Link>
           </span>
         </div>
         {/* Desktop Menu */}

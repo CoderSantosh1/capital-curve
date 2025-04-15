@@ -47,7 +47,7 @@ const Hero = () => {
                   <p className="md:mt-3 leading-4 mt-1 font-semibold md:text-[16px] sm:text-[13px] text-[10px]">
                     {feature.title}
                   </p>
-                  <p className="md:text-[10px] sm:text-[9px] text-[7px] text-white mt-2">
+                  <p className="md:text-[10px] sm:text-[9px] text-[7px] text-white mt-0.5 sm:mt-2">
                     {feature.pg}
                   </p>
                 </div>
@@ -79,7 +79,7 @@ const Hero = () => {
 const features = [
   {
     title: "Market News",
-    pg: "Cotinous Market's Update",
+    pg: "Continuous market updates",
     icon: ico1,
   },
   {

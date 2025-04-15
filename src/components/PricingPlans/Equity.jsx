@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 const Equity = ({ setPriceAndPlan }) => {
   const [expandedCard, setExpandedCard] = useState(null);
-const [selectedCardIndex, setSelectedCardIndex] = useState(1); 
+  const [selectedCardIndex, setSelectedCardIndex] = useState(1);
 
   const cards = [
     {
@@ -18,84 +18,46 @@ const [selectedCardIndex, setSelectedCardIndex] = useState(1);
         { name: "Phase 2 Profit Target: 12%" },
         { name: "Maximum Overall Loss: 8%" },
         { name: "Maximum Daily Loss: 4%" },
-        { name: "Profit Split Upto: 90%" },
+
         { name: "Minimum Trading Days: 7 Days" },
         { name: "Trading Period: 30 Days" },
       ],
       price: "Price",
-      Allcost : "10"
+      Allcost: "10",
     },
     {
       price: "₹5,00,000",
-      features: [
-        "Free access",
-        "10%",
-        "12%",
-        "8%",
-        "4%",
-        "90%",
-        "7 Days",
-        "30 Days",
-      ],
+      features: ["Free access", "10%", "12%", "8%", "4%", "7 Days", "30 Days"],
       Allcost: "₹9,999",
-      amount:"9999",
+      amount: "9999",
       selected: false,
     },
     {
       price: "₹10,00,000",
-      features: [
-        "Free access",
-        "10%",
-        "12%",
-        "8%",
-        "4%",
-        "90%",
-        "7 Days",
-        "30 Days",
-      ],
+      features: ["Free access", "10%", "12%", "8%", "4%", "7 Days", "30 Days"],
       Allcost: "₹17,999",
-      amount:"17999",
+      amount: "17999",
       selected: true,
     },
     {
       price: "₹20,00,000",
-      features: [
-        "Free access",
-        "10%",
-        "12%",
-        "8%",
-        "4%",
-        "90%",
-        "7 Days",
-        "30 Days",
-      ],
+      features: ["Free access", "10%", "12%", "8%", "4%", "7 Days", "30 Days"],
       Allcost: "₹30,999",
-      amount:"30999",
+      amount: "30999",
       selected: false,
     },
-     {
+    {
       price: "₹30,00,000",
-      features: [
-        "Free access",
-        "10%",
-        "12%",
-        "8%",
-        "4%",
-        "90%",
-        "7 Days",
-        "30 Days",
-      ],
+      features: ["Free access", "10%", "12%", "8%", "4%", "7 Days", "30 Days"],
       Allcost: "₹39,999",
-      amount:"39999",
+      amount: "39999",
       selected: false,
     },
   ];
-  const handleCardClick = (allCost,index) => {
-
+  const handleCardClick = (allCost, index) => {
     setPriceAndPlan(allCost);
-    setSelectedCardIndex(index)
+    setSelectedCardIndex(index);
   };
-  
 
   const sliderSettings = {
     infinite: true,
@@ -128,10 +90,10 @@ const [selectedCardIndex, setSelectedCardIndex] = useState(1);
   };
 
   return (
-     <AppLayout>
+    <AppLayout>
       <div className="container sm:mx-auto sm:px-4 sm:py-6 flex flex-wrap justify-between">
         {/* Fixed Trading Balance Card */}
-        <div className="bg-white shadow-md rounded-l-lg sm:p-4 h-[538px] sm:h-[572px] w-[135px] sm:w-[50%] md:w-[30%] sticky top-6 sm:top-auto z-10 mb-6 sm:mb-0">
+        <div className="bg-white shadow-md rounded-l-lg sm:p-4 h-[490px] sm:h-[524px] w-[135px] sm:w-[50%] md:w-[30%] sticky top-6 sm:top-auto z-10 mb-6 sm:mb-0">
           <h2 className="text-[16px] sm:text-lg font-bold text-gray-800 my-3 text-center pt-2 sm:pt-0">
             {cards[0].title}
           </h2>
@@ -185,7 +147,7 @@ const [selectedCardIndex, setSelectedCardIndex] = useState(1);
                   </h2>
 
                   <button
-                    onClick={() => handleCardClick(card.amount,index)}
+                    onClick={() => handleCardClick(card.amount, index)}
                     className={`mt-3 w-full py-2 rounded-md text-sm font-medium transition-all duration-300 ${
                       isSelected
                         ? "bg-indigo-600 text-white"
@@ -194,8 +156,6 @@ const [selectedCardIndex, setSelectedCardIndex] = useState(1);
                   >
                     {isSelected ? " Selected " : "Choose Plan"}
                   </button>
-
-                  
                 </div>
               );
             })}

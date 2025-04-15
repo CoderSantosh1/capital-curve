@@ -5,9 +5,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const Fq = ({ setPriceAndPlan }) => {
-  const [expandedCard, setExpandedCard] = useState(null);
-const [selectedCardIndex, setSelectedCardIndex] = useState(1); 
-
   const cards = [
     {
       isTradingBalance: true,
@@ -18,84 +15,49 @@ const [selectedCardIndex, setSelectedCardIndex] = useState(1);
         { name: "Phase 2 Profit Target: 12%" },
         { name: "Maximum Overall Loss: 8%" },
         { name: "Maximum Daily Loss: 4%" },
-        { name: "Profit Split Upto: 90%" },
         { name: "Minimum Trading Days: 7 Days" },
         { name: "Trading Period: 30 Days" },
       ],
       price: "Price",
-      Allcost : "10"
+      Allcost: "10",
     },
     {
-      price: "₹1,00000",
-      features: [
-        "Free access",
-        "10%",
-        "12%",
-        "8%",
-        "4%",
-        "90%",
-        "7 Days",
-        "30 Days",
-      ],
+      price: "₹1,00,000",
+      features: ["Free access", "10%", "12%", "8%", "4%", "7 Days", "30 Days"],
       Allcost: "₹8,999",
-      amount:"8999",
+      amount: "8999",
       selected: false,
     },
     {
-      price: "₹2,00000",
-      features: [
-        "Free access",
-        "10%",
-        "12%",
-        "8%",
-        "4%",
-        "90%",
-        "7 Days",
-        "30 Days",
-      ],
+      price: "₹2,00,000",
+      features: ["Free access", "10%", "12%", "8%", "4%", "7 Days", "30 Days"],
       Allcost: "₹17,999",
-      amount:"17999",
+      amount: "17999",
       selected: true,
     },
     {
-      price: "₹4,00000",
-      features: [
-        "Free access",
-        "10%",
-        "12%",
-        "8%",
-        "4%",
-        "90%",
-        "7 Days",
-        "30 Days",
-      ],
+      price: "₹4,00,000",
+      features: ["Free access", "10%", "12%", "8%", "4%", "7 Days", "30 Days"],
       Allcost: "₹29,999",
-      amount:"29999",
+      amount: "29999",
       selected: false,
     },
-     {
-      price: "₹6,00000",
-      features: [
-        "Free access",
-        "10%",
-        "12%",
-        "8%",
-        "4%",
-        "90%",
-        "7 Days",
-        "30 Days",
-      ],
+    {
+      price: "₹6,00,000",
+      features: ["Free access", "10%", "12%", "8%", "4%", "7 Days", "30 Days"],
       Allcost: "₹34,999",
-      amount:"34999",
+      amount: "34999",
       selected: false,
     },
   ];
-  const handleCardClick = (allCost,index) => {
 
-    setPriceAndPlan(allCost);
-    setSelectedCardIndex(index)
+  const initialIndex = cards.slice(1).findIndex((card) => card.selected) || 0;
+  const [selectedCardIndex, setSelectedCardIndex] = useState(initialIndex);
+
+  const handleCardClick = (amount, index) => {
+    setPriceAndPlan(amount);
+    setSelectedCardIndex(index);
   };
-  
 
   const sliderSettings = {
     infinite: true,
@@ -111,14 +73,14 @@ const [selectedCardIndex, setSelectedCardIndex] = useState(1);
         },
       },
       {
-        breakpoint: 1024, // For tablet and larger
+        breakpoint: 1024,
         settings: {
-          slidesToShow: 3, // Show 3 cards
+          slidesToShow: 3,
           slidesToScroll: 1,
         },
       },
       {
-        breakpoint: 480, // For mobile
+        breakpoint: 480,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -128,7 +90,7 @@ const [selectedCardIndex, setSelectedCardIndex] = useState(1);
   };
 
   return (
-     <AppLayout>
+    <AppLayout>
       <div className="container sm:mx-auto sm:px-4 sm:py-6 flex flex-wrap justify-between">
         {/* Fixed Trading Balance Card */}
         <div className="bg-white shadow-md rounded-l-lg sm:p-4 h-[538px] sm:h-[572px] w-[135px] sm:w-[50%] md:w-[30%] sticky top-6 sm:top-auto z-10 mb-6 sm:mb-0">
@@ -185,17 +147,15 @@ const [selectedCardIndex, setSelectedCardIndex] = useState(1);
                   </h2>
 
                   <button
-                    onClick={() => handleCardClick(card.amount,index)}
+                    onClick={() => handleCardClick(card.amount, index)}
                     className={`mt-3 w-full py-2 rounded-md text-sm font-medium transition-all duration-300 ${
                       isSelected
                         ? "bg-indigo-600 text-white"
                         : "bg-gray-200 text-gray-800 hover:bg-gray-300"
                     }`}
                   >
-                    {isSelected ? " Selected " : "Choose Plan"}
+                    {isSelected ? "Selected" : "Choose Plan"}
                   </button>
-
-                  
                 </div>
               );
             })}

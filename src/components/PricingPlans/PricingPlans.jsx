@@ -6,8 +6,6 @@ const PricingPlans = () => {
   const [selectedPlan, setSelectedPlan] = useState("equity");
   const [selectedPrice, setSelectedPrice] = useState(9999);
   const [selectedAdd, setSelectedAdd] = useState(9999);
-
-  // const [expandedCard, setExpandedCard] = useState(null);
   const [selected, setSelected] = useState("None");
 
   const addons = [
@@ -23,39 +21,33 @@ const PricingPlans = () => {
       name: "Weekly Payouts",
       value: "Weekly Payouts",
       extra: "+5%",
-      add:"5%",
+      add: "5%",
       description: "Instead of 20 days",
     },
   ];
 
   function setPriceAndPlan(price) {
     setSelectedPrice(price);
-    setSelectedAdd(price); // or whatever plan is appropriate
+    setSelectedAdd(price); // store base price for calculations
   }
-  
-   function handleSelectedPrice(percent,addVal)
-  {
-    console.log(typeof percent);
-    console.log( selectedPrice);
-    let price = parseInt(selectedPrice)
-    let value = addPercentage(percent,price);
-    setSelected(addVal)
-    if(addVal === "None")
-    {
+
+  function handleSelectedPrice(percent, addVal) {
+    let price = parseInt(selectedPrice);
+    let value = addPercentage(percent, price);
+    setSelected(addVal);
+    if (addVal === "None") {
       value = selectedAdd;
     }
-    setSelectedPrice(value)
+    setSelectedPrice(value);
   }
 
   function addPercentage(percentStr, baseValue) {
-    const percent = parseFloat(percentStr) / 100; // Convert "20%" to 0.2
-    const result = baseValue + (baseValue * percent);
-    console.log(result);
-    return result;
+    const percent = parseFloat(percentStr) / 100;
+    return baseValue + baseValue * percent;
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-900 to-teal-500 sm:p-6 flex flex-col items-center text-white rounded-tl-[100px] rounded-tr-[100px] md:rounded-tl-[200px] md:rounded-tr-[200px]">
+    <div className=" sm:h-[1100px] md:h-[1100px] bg-gradient-to-b from-blue-900 to-teal-500 sm:p-6 flex flex-col items-center text-white rounded-tl-[100px] rounded-tr-[100px] md:rounded-tl-[200px] md:rounded-tr-[200px]">
       <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mt-8 sm:mt-0 mb-2 sm:mb-3 text-center">
         Choose the Best Plans
       </h2>
@@ -63,7 +55,7 @@ const PricingPlans = () => {
         Choose your Account Type
       </p>
 
-      {/* Account Type Selection */}
+      {/* Account Type Buttons */}
       <div className="flex flex-wrap justify-center gap-2 sm:gap-4 bg-white p-2 sm:p-3 rounded-full shadow-md mb-6 sm:mb-8">
         {["Equity", "F&O"].map((type) => (
           <button
@@ -80,38 +72,43 @@ const PricingPlans = () => {
         ))}
       </div>
 
-      {/* Conditional rendering of components */}
-      {selectedPlan === "equity" ? <Equity setPriceAndPlan={setPriceAndPlan} /> : <Fq  />}
-      {/* Add-ons Section */}
+      {/* Plan Components */}
+      {selectedPlan === "equity" ? (
+        <Equity setPriceAndPlan={setPriceAndPlan} />
+      ) : (
+        <Fq setPriceAndPlan={setPriceAndPlan} />
+      )}
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mt-6" >
+      {/* Add-ons */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mt-6">
         {addons.map((addon, index) => (
           <label
             key={addon.value}
             className={`flex items-center border-2 px-4 py-3 rounded-lg cursor-pointer transition-all duration-300 
-        ${
-          selected === addon.value
-            ? "border-green-500 bg-green-100 shadow-md"
-            : "border-gray-300 hover:border-gray-500"
-        }
-        ${
-          index === 2
-            ? "col-span-2 justify-self-center sm:col-span-1 sm:justify-self-auto"
-            : ""
-        }
-      `}
+            ${
+              selected === addon.value
+                ? "border-green-500 bg-green-100 shadow-md"
+                : "border-gray-300 hover:border-gray-500"
+            }
+            ${
+              index === 2
+                ? "col-span-2 justify-self-center sm:col-span-1 sm:justify-self-auto"
+                : ""
+            }
+          `}
           >
             <input
               type="radio"
               name="addons"
               value={addon.value}
               checked={selected === addon.value}
-              onChange={() => handleSelectedPrice(addon.add,addon.value)}
+              onChange={() => handleSelectedPrice(addon.add, addon.value)}
               className="hidden"
             />
             <div
-              className={`w-6 h-6 border-2 rounded-full flex items-center justify-center mr-3 
-          ${selected === addon.value ? "border-green-500" : "border-gray-400"}`}
+              className={`w-6 h-6 border-2 rounded-full flex items-center justify-center mr-3 ${
+                selected === addon.value ? "border-green-500" : "border-gray-400"
+              }`}
             >
               {selected === addon.value && (
                 <div className="w-3 h-3 bg-green-500 rounded-full"></div>
@@ -134,14 +131,15 @@ const PricingPlans = () => {
         ))}
       </div>
 
-      {/* Final Price & Pay Button */}
-      <div className=" mt-4 sm:mt-8 bg-white p-1 sm:p-1 rounded-lg shadow-lg text-gray-900 text-center w-[150px] h-[70px]  sm:w-full max-w-md mx-auto">
+      {/* Final Price Display */}
+      <div className="mt-4 sm:mt-8 bg-white p-1 sm:p-1 rounded-lg shadow-lg text-gray-900 text-center w-[150px] h-[70px] sm:w-full max-w-md mx-auto">
         <p className="text-lg sm:text-xl font-bold">Price</p>
         <p className="text-2xl sm:text-3xl font-extrabold text-blue-600">
-        ₹{Math.round(selectedPrice).toLocaleString("en-IN")}
+          ₹{Math.round(selectedPrice).toLocaleString("en-IN")}
         </p>
       </div>
 
+      {/* Pay Button */}
       <div className="my-4 text-center">
         <button className="px-6 sm:px-8 py-2 sm:py-3 bg-green-500 text-white text-base sm:text-lg font-semibold rounded-full shadow-md hover:bg-green-600 transition-all duration-300">
           Pay Now
