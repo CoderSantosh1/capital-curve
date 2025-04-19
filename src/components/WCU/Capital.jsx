@@ -55,43 +55,40 @@ const settings = {
     },
   ],
 };
+
 const Capital = () => {
   return (
-        <section className="py-4 sm:py-12 px-4 text-center mb-2 sm:mb-4">
+    <section className="py-4 sm:py-2 px-4 text-center mb-1 sm:mb-2">
       <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6 sm:mb-8">
         Why Choose Us?
       </h2>
 
       {/* Slick Slider */}
-      <div className="max-w-7xl mx-auto px-6 sm:px-4 min-h-[22rem] relative overflow-visible ">
-        <Slider {...settings} className="overflow-visible">
+      <div className="max-w-7xl mx-auto px-5 sm:px-4 min-h-[22rem]">
+        <Slider {...settings}>
           {features.map((feature, index) => (
-            <div
-              key={index}
-              className="px-2 sm:px-3 relative  overflow-visible py-3"
-            >
-              {/* Wrapper div to prevent cutting issue */}
-              <div className="relative">
-                <div className="p-6 bg-[#214D69] rounded-xl shadow-md hover:shadow-xl transition-transform duration-300 hover:-translate-y-2 flex flex-col items-center text-center min-h-[16rem] pb-4">
-                  <img
-                    src={feature.icon}
-                    alt={feature.title}
-                    className="h-20 mb-2"
-                  />
-                  <h3 className="text-lg font-semibold text-[#2BE7B8] mb-2">
-                    {feature.title}
-                  </h3>
-                  <p className="text-base text-gray-300 leading-relaxed">
-                    {feature.description}
-                  </p>
-                </div>
+            <div key={index} className="px-2 sm:px-3 py-3">
+              {/* Feature Card */}
+              <div className="p-6 bg-[#214D69] rounded-xl shadow-md hover:shadow-xl transition-transform duration-300 hover:-translate-y-2 flex flex-col items-center text-center min-h-[16rem]">
+                <img
+                  src={feature.icon}
+                  alt={feature.title}
+                  className="h-20 mb-2"
+                  loading="lazy" // Lazy load images
+                />
+                <h3 className="text-lg font-semibold text-[#2BE7B8] mb-2">
+                  {feature.title}
+                </h3>
+                <p className="text-base text-gray-300 leading-relaxed">
+                  {feature.description}
+                </p>
               </div>
             </div>
           ))}
         </Slider>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Capital
+export default Capital;

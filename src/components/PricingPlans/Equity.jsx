@@ -18,7 +18,6 @@ const Equity = ({ setPriceAndPlan }) => {
         { name: "Phase 2 Profit Target: 12%" },
         { name: "Maximum Overall Loss: 8%" },
         { name: "Maximum Daily Loss: 4%" },
-
         { name: "Minimum Trading Days: 7 Days" },
         { name: "Trading Period: 30 Days" },
       ],
@@ -54,6 +53,7 @@ const Equity = ({ setPriceAndPlan }) => {
       selected: false,
     },
   ];
+
   const handleCardClick = (allCost, index) => {
     setPriceAndPlan(allCost);
     setSelectedCardIndex(index);
@@ -64,6 +64,9 @@ const Equity = ({ setPriceAndPlan }) => {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    cssEase: "ease-in-out",
     responsive: [
       {
         breakpoint: 768,
@@ -73,14 +76,14 @@ const Equity = ({ setPriceAndPlan }) => {
         },
       },
       {
-        breakpoint: 1024, // For tablet and larger
+        breakpoint: 1024,
         settings: {
-          slidesToShow: 3, // Show 3 cards
+          slidesToShow: 3,
           slidesToScroll: 1,
         },
       },
       {
-        breakpoint: 480, // For mobile
+        breakpoint: 480,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -105,9 +108,7 @@ const Equity = ({ setPriceAndPlan }) => {
               >
                 {item.name}
                 {item.units && (
-                  <span className="block text-xs text-gray-500">
-                    {item.units}
-                  </span>
+                  <span className="block text-xs text-gray-500">{item.units}</span>
                 )}
               </li>
             ))}
@@ -125,7 +126,7 @@ const Equity = ({ setPriceAndPlan }) => {
               return (
                 <div
                   key={index}
-                  className={`bg-white shadow-md rounded-r-lg pb-2 sm:p-4 h-full w-[300px] transition-all duration-300 hover:scale-105 hover:z-10 ${
+                  className={`bg-white shadow-md rounded-r-lg pb-2 sm:p-4 h-full w-[300px] transition-all duration-300 ease-in-out transform hover:scale-105 hover:z-10 ${
                     isSelected ? "ring-2 ring-indigo-500" : ""
                   }`}
                 >
@@ -148,7 +149,7 @@ const Equity = ({ setPriceAndPlan }) => {
 
                   <button
                     onClick={() => handleCardClick(card.amount, index)}
-                    className={`mt-3 w-full py-2 rounded-md text-sm font-medium transition-all duration-300 ${
+                    className={`mt-3 w-full py-2 rounded-md text-sm font-medium transition-all duration-300 ease-in-out ${
                       isSelected
                         ? "bg-indigo-600 text-white"
                         : "bg-gray-200 text-gray-800 hover:bg-gray-300"

@@ -1,5 +1,4 @@
-import React from "react";
-
+import React, { useEffect, useState } from "react";
 import girlLogo from "../../assets/The girl image.svg";
 import ico1 from "../../assets/Icon Graphic 1.svg";
 import ico2 from "../../assets/IconGraphic 2.svg";
@@ -8,22 +7,35 @@ import ico4 from "../../assets/Icon Graphic 4.svg";
 import "./Hero.css";
 import AppLayout from "../AppLayout";
 import { Link } from "react-router-dom";
+
 const Hero = () => {
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoaded(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <div className="bg-gradient-to-b shadow-2xl custom-gradient md:h-[700px] flex flex-col items-start justify-start md:px-4 sm:px-[2%] pb-4 p-[.5%]  md:mt-[-0%]">
+    <div className="bg-gradient-to-b shadow-2xl custom-gradient md:h-[700px] flex flex-col items-start justify-start md:px-4 sm:px-[2%] pb-4 p-[.5%] md:mt-[-0%]">
       <AppLayout>
-        <div className="grid sm:grid-cols-2 gap-8 ">
-          <div className="">
+        <div
+          className={`grid sm:grid-cols-2 gap-8 transform transition-all duration-1000 ease-in-out ${
+            loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
+        >
+          {/* Left Side */}
+          <div>
             <div className="text-center sm:max-w-2xl mt-[18%] sm:mt-[10px] sm:pt-[20%] md:pt-[0%]">
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black p-[.5%]">
                 Learn, Prove, and Trade with
                 <span className="text-[#107D6B]"> Confidence!</span>
               </h1>
-              <div className="sm:hidden flex  ">
+              <div className="sm:hidden flex">
                 <img
                   src={girlLogo}
                   alt="Capital Curv girl Logo"
-                  className="w-full h-[250px] rounded-full "
+                  className="w-full h-[250px] rounded-full"
                 />
               </div>
               <p className="text-gray-700 mt-[.5%] sm:mt-4 md:mt-[4%] sm:text-lg text-[16px]">
@@ -32,12 +44,13 @@ const Hero = () => {
                 opportunities for real talent!
               </p>
             </div>
+
             {/* Features */}
-            <div className=" mt-[3%] sm:mt-6 md:mt-[11%] grid grid-cols-4 sm:grid-cols-4 md:grid-cols-4 sm:gap-4 md:gap-[20%] gap-[1%] sm:w-[500px] items-center text-center mx-[2%] sm:mx-[15%] md:mx-auto mb-[2%]">
+            <div className="mt-[3%] sm:mt-6 md:mt-[11%] grid grid-cols-4 sm:grid-cols-4 md:grid-cols-4 sm:gap-4 md:gap-[20%] gap-[1%] sm:w-[500px] items-center text-center mx-[2%] sm:mx-[15%] md:mx-auto mb-[2%]">
               {features.map((feature, index) => (
                 <div
                   key={index}
-                  className="btn text-[#2BE7B8] sm:p-2 p-[1px] pt-1.5 rounded-xl flex flex-col items-center text-center w-[82px] h-[92px]  sm:w-28 md:w-32 sm:h-28 md:h-34 border-2 border-black shadow-sm shadow-black "
+                  className="btn text-[#2BE7B8] sm:p-2 p-[1px] pt-1.5 rounded-xl flex flex-col items-center text-center w-[82px] h-[92px] sm:w-28 md:w-32 sm:h-28 md:h-34 border-2 border-black shadow-sm shadow-black transition-all duration-500 ease-in-out hover:scale-105"
                 >
                   <img
                     src={feature.icon}
@@ -54,8 +67,9 @@ const Hero = () => {
               ))}
             </div>
           </div>
-          {/* image  */}
-          <div className="hidden sm:flex md:pt-[4%] lg:pt-[0%]">
+
+          {/* Right Side Image */}
+          <div className="hidden sm:flex md:pt-[4%] lg:pt-[0%] transition-opacity duration-1000 ease-in-out">
             <img
               src={girlLogo}
               alt="Capital Curv girl Logo"
@@ -63,8 +77,13 @@ const Hero = () => {
             />
           </div>
         </div>
+
         {/* CTA Button */}
-        <div className="flex items-center justify-center mt-[2%] sm:mt-[2px] md:mt-[-3%]">
+        <div
+          className={`flex items-center justify-center mt-[2%] sm:mt-[2px] md:mt-[-3%] transition-opacity duration-1000 delay-300 ${
+            loaded ? "opacity-100" : "opacity-0"
+          }`}
+        >
           <Link to="/pricing">
             <button className="mt-2 sm:w-[300px] bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-6 rounded-[25px] sm:rounded-lg text-lg shadow-lg transition duration-300 relative overflow-hidden hover:underline">
               Get Started Now →

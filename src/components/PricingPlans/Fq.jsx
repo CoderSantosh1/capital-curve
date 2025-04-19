@@ -61,9 +61,10 @@ const Fq = ({ setPriceAndPlan }) => {
 
   const sliderSettings = {
     infinite: true,
-    speed: 500,
+    speed: 600, // Slightly slower for a smoother transition
     slidesToShow: 3,
     slidesToScroll: 1,
+    easing: "ease-in-out", // Smoother easing for transitions
     responsive: [
       {
         breakpoint: 768,
@@ -126,7 +127,7 @@ const Fq = ({ setPriceAndPlan }) => {
                 <div
                   key={index}
                   className={`bg-white shadow-md rounded-r-lg pb-2 sm:p-4 h-full w-[300px] transition-all duration-300 hover:scale-105 hover:z-10 ${
-                    isSelected ? "ring-2 ring-indigo-500" : ""
+                    isSelected ? "ring-2 ring-indigo-500 shadow-lg" : ""
                   }`}
                 >
                   <h2 className="text-lg font-bold text-gray-800 my-2.5 sm:my-4 text-center">

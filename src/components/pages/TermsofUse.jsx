@@ -1,6 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const TermsAndConditions = () => {
+  const [openIndex, setOpenIndex] = useState(null);
+
+  const handleToggle = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
   const sections = [
     {
       title: "Weekly Closing Accounts",
@@ -55,20 +62,57 @@ const TermsAndConditions = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-100 p-4 sm:p-8 mt-4 md:mt-8 ">
-      <div className="max-w-4xl mx-auto bg-white shadow-md rounded-lg p-6 sm:p-10">
-        <h1 className="text-3xl font-bold text-center mb-8 text-blue-700">
-          Terms and Conditions
-        </h1>
-        <div className="space-y-6">
+    <div className="bg-gray-100 min-h-screen">
+      {/* Banner */}
+      <div
+        className="relative bg-cover bg-center h-[60vh] flex items-center justify-center text-white"
+        style={{
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?fit=crop&w=1200&q=80')",
+        }}
+      >
+        <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+        <div className="z-10 text-center max-w-3xl px-4">
+          <h1 className="text-4xl sm:text-5xl font-bold mb-4">
+            Terms & Conditions
+          </h1>
+          <p className="text-lg sm:text-xl text-gray-200">
+            Everything you need to know about your trading journey with us.
+          </p>
+        </div>
+      </div>
+
+      {/* Terms Section */}
+      <div className="max-w-5xl mx-auto px-4 py-12">
+        <div className="bg-white rounded-xl shadow-lg p-6 sm:p-10">
           {sections.map((section, index) => (
-            <div key={index} className="space-y-1">
-              <h2 className="text-xl sm:text-2xl font-semibold text-gray-800">
-                {section.title}
-              </h2>
-              <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
-                {section.content}
-              </p>
+            <div key={index} className="border-b border-gray-200 mb-4 pb-4">
+              <button
+                onClick={() => handleToggle(index)}
+                className="flex justify-between items-center w-full text-left"
+              >
+                <h2 className="text-lg sm:text-xl font-semibold text-gray-800">
+                  {section.title}
+                </h2>
+                <span className="text-2xl text-gray-400">
+                  {openIndex === index ? "-" : "+"}
+                </span>
+              </button>
+
+              <AnimatePresence>
+                {openIndex === index && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <p className="mt-2 text-gray-700 text-sm sm:text-base leading-relaxed">
+                      {section.content}
+                    </p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           ))}
         </div>
