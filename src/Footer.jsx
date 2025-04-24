@@ -5,22 +5,23 @@ const footerLinks = [
   {
     title: "Company",
     links: [
-      { name: "Terms of Use", href: "#" },
-      { name: "Contact Us", href: "#" },
-      { name: "Affiliate Program", href: "#" },
+      { name: "Terms of Use", href: "/termsofUse" },
+      { name: "Contact Us", href: "/contactUs" },
+      // { name: "Affiliate Program", href: "#" },
     ],
   },
   {
     title: "Legal",
     links: [
-      { name: "Terms & Conditions", href: "#" },
-      { name: "Privacy Policy", href: "#" },
+      { name: "Terms & Conditions", href: "/termsconditions" },
+      { name: "Privacy Policy", href: "/PrivacyPolicy" },
+       { name: "Refund & Cancellation Policy", href: "/Refundandcancellationpolicy" },
     ],
   },
   {
     title: "Community",
     links: [
-      { name: "About Us", href: "#" },
+      { name: "About Us", href: "/about" },
       { name: "Blog", href: "#" },
       { name: "Brand kit", href: "#" },
     ],

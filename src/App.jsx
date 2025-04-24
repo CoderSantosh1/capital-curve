@@ -4,13 +4,17 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import ViewPlane from "./components/PricingPlans/ViewPlane";
 import PrivacyPolicy from "./components/pages/PrivacyPolicy";
+import TermsofUse from "./components/pages/TermsofUse";
+import TermsConditions from "./components/pages/TermsConditions";
+import RefundCancellationPolicy from "./components/pages/RefundCancellationPolicy";
+import ContactUs from "./components/pages/ContactUs";
 
 // Lazy load components
+const Faq = lazy(() => import('./components/pages/Faq'));
 const Hero = lazy(() => import("./components/Hero/Hero"));
 const Layout = lazy(() => import("./Layout"));
 const ProcessSteps = lazy(() => import("./components/ProcessSteps/ProcessSteps"));
 const PricingPlans = lazy(() => import("./components/PricingPlans/PricingPlans"));
-const TermsAndConditions = lazy(() => import("./components/pages/TermsofUse"));
 const About = lazy(() => import("./components/pages/About"));
 const SignUp = lazy(() => import("./components/LogIn/SignUp"));
 const Login = lazy(() => import("./components/LogIn/Login"));
@@ -27,8 +31,10 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<Hero />} />
           </Route>
-          <Route path="/termsAndConditions" element={<TermsAndConditions />} />
-          <Route path="/faqs" element={<FAQPage />} />
+          <Route path="/termsofUse" element={<TermsofUse/>} />
+          <Route path="/Refundandcancellationpolicy" element={<RefundCancellationPolicy/>} />
+           <Route path="/termsconditions" element={<TermsConditions/>} />
+          <Route path="/faqs" element={<Faq/>} />
           <Route path="/signUp" element={<SignUp />} />
           <Route path="/logIn" element={<Login />} />
           <Route path="/ComingSoon" element={<ComingSoon />} />
@@ -39,6 +45,7 @@ function App() {
           <Route path="/capital" element={<Capital />} />
           <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
            <Route path="/viewplane" element={<ViewPlane />} />
+           <Route path="/contactUs" element={<ContactUs />} />
         </Routes>
         <Footer />
       </Router>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const TermsAndConditions = () => {
+const TermsofUse = () => {
   const [openIndex, setOpenIndex] = useState(null);
 
   const handleToggle = (index) => {
@@ -74,7 +74,7 @@ const TermsAndConditions = () => {
         <div className="absolute inset-0 bg-black bg-opacity-60"></div>
         <div className="z-10 text-center max-w-3xl px-4">
           <h1 className="text-4xl sm:text-5xl font-bold mb-4">
-            Terms & Conditions
+            Terms Of Use
           </h1>
           <p className="text-lg sm:text-xl text-gray-200">
             Everything you need to know about your trading journey with us.
@@ -121,4 +121,4 @@ const TermsAndConditions = () => {
   );
 };
 
-export default TermsAndConditions;
+export default TermsofUse;

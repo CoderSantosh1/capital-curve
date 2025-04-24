@@ -11,17 +11,17 @@ const team = [
   {
     name: "Abhishek Kumar Raj",
     role: "Full-Stack Developer",
-    image: Abhi,
+    // image: Abhi,
   },
   {
     name: "Ayush Raj",
     role: "Founder and CEO",
-    image: ayush,
+    // image: ayush,
   },
   {
     name: "Gautam Malhotra",
     role: "Marketing and Operations Head",
-    image: Gaut,
+    // image: Gaut,
   },
 ];
 
@@ -131,7 +131,7 @@ const About = () => {
         </section>
 
         {/* Our Team */}
-        <section className="overflow-hidden px-2">
+        {/* <section className="overflow-hidden px-2">
           <h2 className="text-3xl sm:text-4xl font-semibold mb-8 text-blue-700 text-center">
             Our Team
           </h2>
@@ -162,7 +162,7 @@ const About = () => {
               </div>
             ))}
           </Slider>
-        </section>
+        </section> */}
 
         {/* CTA */}
         <div className="text-center mt-20">

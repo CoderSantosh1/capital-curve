@@ -15,7 +15,7 @@ const Navbar = () => {
   const menuItems = [
     { name: "Home", path: "/" },
     { name: "Plans", path: "/viewplane" },
-    { name: "Terms of Use", path: "/termsAndConditions" },
+    { name: "Terms of Use", path: "/termsofUse" },
     { name: "Privacy Policy", path: "/PrivacyPolicy" },
     { name: "About us", path: "/about" },
     { name: "Contact Us", path: "/contact" },
