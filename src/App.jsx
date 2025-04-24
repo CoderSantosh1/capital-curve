@@ -8,6 +8,8 @@ import TermsofUse from "./components/pages/TermsofUse";
 import TermsConditions from "./components/pages/TermsConditions";
 import RefundCancellationPolicy from "./components/pages/RefundCancellationPolicy";
 import ContactUs from "./components/pages/ContactUs";
+import Payment from './components/Payment';
+import PaymentStatus from './components/PaymentStatus';
 
 // Lazy load components
 const Faq = lazy(() => import('./components/pages/Faq'));
@@ -46,6 +48,8 @@ function App() {
           <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
            <Route path="/viewplane" element={<ViewPlane />} />
            <Route path="/contactUs" element={<ContactUs />} />
+           <Route path="/payment" element={<Payment />} />
+           <Route path="/payment/status" element={<PaymentStatus />} />
         </Routes>
         <Footer />
       </Router>
