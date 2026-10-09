@@ -12,7 +12,8 @@ app.use(express.json());
 
 // PhonePe configuration
 const MERCHANT_ID = 'TEST-M22J3IF4FMOFT_25042';
-const SALT_KEY = 'ZjA2YmY3NjctNThmNy00NjA1LWIxNTctMWI1OTJjZWY3MDhi';
+// const SALT_KEY = 'ZjA2YmY3NjctNThmNy00NjA1LWIxNTctMWI1OTJjZWY3MDhi';
+const SALT_KEY = ''
 const SALT_INDEX = 1;
 const CLIENT_ID = 'TEST-M22J3IF4FMOFT_25042';
 const CLIENT_SECRET = 'ZjA2YmY3NjctNThmNy00NjA1LWIxNTctMWI1OTJjZWY3MDhi';
